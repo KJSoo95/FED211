@@ -5,42 +5,72 @@
   <title>네이버 요약뉴스 - 메인페이지</title>
   <meta charset="UTF-8">
   <style>
-
+    body{
+      background-image: url(./images/background.jpg); background-size: cover; background-attachment: fixed;
+    }
+    header h1{
+      text-align: center; color: chartreuse;
+    }
+    nav{
+      text-align: center; color: white;
+    }
+    nav a{
+      text-decoration: none;
+    }
+    main{
+      text-align: center;
+    }
+    footer{
+      text-align: center; color: white;
+    }
   </style>
 </head>
 
 <body>
-  <!-- 1. 상단영역 -->
-  <header>
-    <!-- 1-1. 제목 -->
-    <h1>네이버 요약뉴스 - 메인페이지</h1>
-    <!-- 1-2. 메뉴 -->
-    <nav>
-      <a href=""><img src="./images/logo.png" alt="네이버 로고"></a>
-      <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=100" target="_blank">정치</a>
-      <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=101" target="_blank">경제</a>
-      <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=102" target="_blank">사회</a>
-      <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=105" target="_blank">IT/과학</a>
-      <a href="https://entertain.naver.com/home" target="_blank">TV/연예</a>
-    </nav>
-  </header>
-  <!-- 2. 메인 컨텐츠 -->
-  <main>
-    <!-- img 요소 : 이미지를 불러오는 요소
-          -src 속성 : 이미지 경로
-          -alt 속성 : 이미지 설명(alternarive text - 대체 텍스트, 웹 접근성을 위한 필수속성임!!!) -->
+  <!-- style 속성 : 요소에 직접 css를 변경해주는 속성
+        값으로 css문법을 그대로 쓴다!
+        기본 css문법 : 속성명 : 값;
+        예) width: 727px; 가로크기 727px로 설정
+        margin: 0 auto; :  바깥 여백을 위아래 0, 양쪽 등분할-->
+  <div>
 
-    <img src="./images/News_info.jpg" alt="News_info" style="width: 500px; height: auto;">
-  </main>
-  <!-- 3. 하단 정보 -->
-  <footer>
-    <!-- address 요소 : 주소를 담는 요소 -->
-    <address>
-      서울시 강남구 대호빌딩 8층 <br>
-      대표 : KNG <br>
-      전화 : 010-1234-5678 <br>
-    </address>
-  </footer>
+    <!-- 1. 상단영역 -->
+    <header >
+      <!-- 1-1. 제목 -->
+      <h1>네이버 요약뉴스 - 메인페이지</h1>
+
+      <!-- 1-2. 메뉴 -->
+      <nav>
+        <a href=""><img src="./images/logo.png" alt="네이버 로고" style="width: 20px; vertical-align: bottom; text-decoration: none;"></a>&nbsp;
+        <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=100" target="_blank">정치</a> | 
+        <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=101" target="_blank">경제</a> | 
+        <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=102" target="_blank">사회</a> | 
+        <a href="https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1=105" target="_blank">IT/과학</a> | 
+        <a href="https://entertain.naver.com/home" target="_blank">TV/연예</a>
+      </nav>
+    </header>
+    <!-- hr요소 : 가로구분선 (CSS디자인시 사용안함) -->
+    <hr>
+
+    <!-- 2. 메인 컨텐츠 -->
+    <main>
+      <!-- img 요소 : 이미지를 불러오는 요소
+            -src 속성 : 이미지 경로
+            -alt 속성 : 이미지 설명(alternarive text - 대체 텍스트, 웹 접근성을 위한 필수속성임!!!) -->
+      <img src="./images/News_info.jpg" alt="News_info" style="width: 500px;" >
+    </main>
+    <hr>
+
+    <!-- 3. 하단 정보 -->
+    <footer>
+      <!-- address 요소 : 주소를 담는 요소 -->
+      <address>
+        서울시 강남구 대호빌딩 8층 <br>
+        대표 : KNG <br>
+        전화 : 010-1234-5678 <br>
+      </address>
+    </footer>
+  </div>
   <!-- 
 
       [ HTML 핵심 요소들 - 페이지에 단 한번만 등장!]

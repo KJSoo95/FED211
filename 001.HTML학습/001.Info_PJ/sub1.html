@@ -13,26 +13,38 @@
     /* CSS 코딩구역 */
     /* 이 방식은 페이지 내부에 구역을 잡고 쓰는 인터널 방식 */
     /* 문법 : 선택자{ 속성 : 값;} */
-    div{
-      width: 727px; margin: 0 auto;
+    body div {
+      width: 727px;
+      margin: 0 auto;
     }
-    body{
-      background-image: url(./images/background.jpg); background-size: cover; background-attachment: fixed;
+
+    body {
+      background-image: url(./images/background.jpg);
+      background-size: cover;
+      background-attachment: fixed;
     }
-    header h1{
-      text-align: center; color: chartreuse;
+
+    header h1 {
+      text-align: center;
+      color: chartreuse;
     }
-    nav{
-      text-align: center; color: white;
+
+    nav {
+      text-align: center;
+      color: white;
     }
-    nav a{
+
+    nav a {
       text-decoration: none;
     }
-    main{
-      text-align: center;
+
+    main p{
+      color: white;
     }
-    footer{
-      text-align: center; color: white;
+
+    footer {
+      text-align: center;
+      color: white;
       /* 안쪽여백 위아래 10px 양쪽 0 */
       padding: 10px 0;
     }
@@ -40,22 +52,23 @@
 </head>
 
 <body>
-  
+
   <div>
 
     <!-- 1. 상단영역 -->
-    <header >
+    <header>
 
       <!-- 1-1. 제목 -->
       <h1>네이버 요약뉴스 - 정치페이지</h1>
 
       <!-- 1-2. 메뉴 -->
       <nav>
-        <a href="index.html"><img src="./images/logo.png" alt="네이버 로고" style="width: 20px; vertical-align: bottom; text-decoration: none;"></a>&nbsp;
-        <a href="sub1.html">정치</a> | 
-        <a href="sub2.html">경제</a> | 
-        <a href="sub3.html">사회</a> | 
-        <a href="sub4.html">IT/과학</a> | 
+        <a href="index.html"><img src="./images/logo.png" alt="네이버 로고"
+            style="width: 20px; vertical-align: bottom; text-decoration: none;"></a>&nbsp;
+        <a href="sub1.html">정치</a> |
+        <a href="sub2.html">경제</a> |
+        <a href="sub3.html">사회</a> |
+        <a href="sub4.html">IT/과학</a> |
         <a href="sub5.html">TV/연예</a>
       </nav>
     </header>
@@ -64,7 +77,52 @@
 
     <!-- 2. 메인 컨텐츠 -->
     <main>
+      <!-- 신문사 -->
       
+      <!-- 기사제목 -->
+      <h2><a href="http://www.kmib.co.kr/news/index.asp"><img src="./images/kookmin.png" alt="국민일보 로고"></a>수도권 4단계 또 10월3일까지…백신 조건부 ‘6인 모임’</h2>
+
+      <!-- 요약본 -->
+      <h3>
+        수도권, 낮(접종완료2인+)·저녁(4인+) 모임 최대 6명 <br>
+        비수도권, 모든 다중이용시설 ‘4+4 모임’ <br>
+        추석 연휴 가족 ‘8명(4인+)’ 모임 허용
+      </h3>
+
+      <!-- 이미지 -->
+      <img src="./images/정치.jpg" alt="정치 이미지">
+      <!-- 이미지설명 -->
+      <p style="margin: 0;"">사회적 거리두기 4단계로 한산한 서울 명동 거리 모습. 뉴시스</p>
+     
+
+      <!-- 내용 -->
+      <p>
+        현행 수도권의 사회적 거리두기 4단계가 오는 10월3일까지 한 달 더 연장된다.
+        다만 거리두기 장기화에 따른 피로감을 반영해 음식점 등 영업시간은 오후 10시까지로 1시간 다시 길어진다. 모임인원 제한은 백신접종완료자 수에 따라 최대 6명까지로 완화된다.
+      </p>
+
+      <p>김부겸 국무총리는 3일 정부서울청사에서 주재한 코로나19 중앙재난안전대책본부 회의에서 이달 6일부터 4주간 적용할 방역대책을 발표했다.</p>
+
+      <p>
+        김 총리는 수도권 4단계 거리두기 단계 연장을 언급하고 “민생의 어려움을 조금이나마 덜어드리기 위해 방역기준을 합리적으로 조정하고자 한다”며 “식당·카페는 영업시간을 밤 9시에서 10시로 환원한다”고
+        밝혔다.
+      </p>
+
+      <p>이어 “식당·카페에서의 모임인원 제한도 6명까지 허용한다”며 “다만 낮에는 2인 이상, 저녁 6시 이후에는 4인 이상의 접종완료자가 포함된 경우로 한정한다”고 설명했다.</p>
+
+      <p>비수도권을 중심으로 한 3단계 지역에 대해서는 “모든 다중이용시설에서 접종완료자 4인을 포함, 최대 8명까지 사적모임이 가능하게 된다”고 말했다.</p>
+
+      <p>추석 연휴 기간에 대해서는 “추석을 포함해 1주일간은 접종완료자 4명을 포함해, 최대 8명까지 가정 내 가족모임을 허용하기로 했다”고 설명했다.</p>
+
+      <!-- 기자이름 -->
+      <p>조민영 기자(mymin@kmib.co.kr)</p>
+
+      <!-- 원본기사 링크 -->
+      <a href="https://news.naver.com/main/read.naver?mode=LSD&mid=shm&sid1=102&oid=005&aid=0001468431" style="text-decoration: none; color: bisque;">원본기사 링크</a>
+      
+
+
+
     </main>
     <hr>
 

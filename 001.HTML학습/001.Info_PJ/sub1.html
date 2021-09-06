@@ -42,7 +42,14 @@
       font-size: 9px
     }
 
-    ul li {}
+    /* "거리두기" 글자만 빨간색 */
+    span{
+      color: rgb(255, 0, 0);
+    }
+
+    table{
+      width: 385px;
+    }
 
     footer {
       text-align: center;
@@ -78,8 +85,10 @@
 
     <!-- 2. 메인 컨텐츠 -->
     <main>
-      <!-- 신문사 -->
-      <a href="http://www.kmib.co.kr/news/index.asp"><img src="./images/kookmin.png" alt="국민일보 로고"></a>
+      <!-- 언론사 정보영역 -->
+      <div>
+        <img src="./images/kookmin.png" alt="국민일보 로고">
+      </div>  
       <!-- 기사제목 -->
       <h2>수도권 4단계 또 10월3일까지…백신 조건부 ‘6인 모임’</h2>
 
@@ -94,18 +103,18 @@
       <figure>
         <img src="/001.HTML학습/001.Info_PJ/images/정치.jpg" alt="정치기사사진">
         <figcaption>
-          사회적 거리두기 4단계로 한산한 서울 명동 거리 모습. 뉴시스
+          사회적 <span>거리두기</span> 4단계로 한산한 서울 명동 거리 모습. 뉴시스
         </figcaption>
       </figure>
 
       <!-- 내용 -->
 
-      <p>현행 수도권의 사회적 거리두기 <mark>4단계</mark>가 오는 <b>10월3일까지 한 달 더 연장된다.</b> 다만 거리두기 장기화에 따른 피로감을 반영해 음식점 등 영업시간은 오후 10시까지로
+      <p>현행 수도권의 사회적 <span>거리두기</span> <mark>4단계</mark>가 오는 <b>10월3일까지 한 달 더 연장된다.</b> 다만 <span>거리두기</span> 장기화에 따른 피로감을 반영해 음식점 등 영업시간은 오후 10시까지로
         1시간 다시 길어진다. 모임인원 제한은 <strong>백신접종완료자 수에 따라</strong> 최대 6명까지로 완화된다.</p>
 
       <p>김부겸 국무총리는 3일 정부서울청사에서 주재한 <i>코로나<sup>①</sup>19 중앙재난안전대책본부</i> 회의에서 이달 6일부터 4주간 적용할 방역대책을 발표했다.</p>
 
-      <p>김 총리는 수도권 <em><mark>4단계</mark> 거리두기 단계 연장</em>을 언급하고 “<ins>민생의</ins> 어려움을 조금이나마 덜어드리기 위해 방역기준을 합리적으로 조정하고자 한다”며
+      <p>김 총리는 수도권 <em><mark>4단계</mark> <span>거리두기</span> 단계 연장</em>을 언급하고 “<ins>민생의</ins> 어려움을 조금이나마 덜어드리기 위해 방역기준을 합리적으로 조정하고자 한다”며
         “식당·카페는 영업시간을 밤 9시에서 10시로 환원한다”고 밝혔다. <del>그렇구나</del></p>
 
       <p>이어 “식당·카페에서의 모임인원 제한도 6명까지 허용한다”며 <q>다만 낮에는 2인 이상, 저녁 6시 이후에는 4인 이상의 접종완료자가 포함된 경우로 한정한다</q>고 설명했다.</p>
@@ -233,6 +242,40 @@
         </dd>
 
       </dl>
+
+      <hr>
+      <h3>언론사별 가장 많이 본 뉴스</h3>
+      <!-- 테이블요소 2열 3행 -->
+      <table>
+        <tr><!-- 1행 -->
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275463&rankingType=RANKING" target="_blank">마이크 발로 찬 강윤성, 이번엔 유치장 문 열린 틈타 경찰 밀치고 욕설
+          </a>
+          <img src="" alt="">
+        </td>
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275463&rankingType=RANKING"><img src="https://mimgnews.pstatic.net/image/origin/437/2021/09/06/275463.jpg?type=nf88_60" alt="기사사진" ></a>
+          </td>
+        </tr>
+        <tr><!-- 2행 -->
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275461&rankingType=RANKING">"눈 빼고 다 가려라" 탈레반, 여대생들에 니캅 착용 명령
+            </a>
+          </td>
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275461&rankingType=RANKING"><img src="https://mimgnews.pstatic.net/image/origin/437/2021/09/06/275461.jpg?type=nf88_60" alt="기사사진" ></a>
+          </td>
+        </tr>
+        <tr><!-- 3행 -->
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275457&rankingType=RANKING">"딸이 넷이라도 상주는 사위가?"…낡은 결혼·장례 문화 여전
+          </a>
+        </td>
+          <td>
+            <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=437&aid=0000275457&rankingType=RANKING"><img src="https://mimgnews.pstatic.net/image/origin/437/2021/09/06/275457.jpg?type=nf88_60" alt="기사사진" ></a>
+          </td>
+        </tr>
+      </table>
 
     </main>
     <hr>

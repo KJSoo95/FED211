@@ -49,8 +49,20 @@ https://www.w3schools.com/cssref/playit.asp?filename=playcss_ol_list-style-type&
 26. li : ul과 ol요소의 직계 필수 자식요소
 
 27. dl : 용어 리스트 (Description Lists)
-28. dt : 용어 (Description term)
-29. dd : 용어 설명(Description describes)
+28. dt : 용어 (defindes) terms)
+29. dd : 용어 설명(describes description )
     -> dl 아래 자식으로 반드시 dt 와 dd는 한개 이상 와야한다!
     -> dt와 dd는 형제요소임!
-    
+
+[ 필요할 때 사용하는 빈 블록/인라인 요소 ]
+30. div : 내용을 구분할 때 사용하는 요소 
+    -> display : block 설정외에 아무런 셋팅이 없다!
+    -> 자유롭게 블록요소로 구조를 잡을 때 사용한다.
+
+31. span : 인라인 내용요소나 문자데이터를 구분할 때 사용하는 요소
+
+[ 가장 복잡한 그룹요소인 테이블 ]
+32. table : table 전체 부모요소
+33. tr : 테이블 레코드 행 (table row)
+34. td : 테이블 데이터 요소 (table data)
+35. 

@@ -18,10 +18,6 @@
       margin: 0 auto;
     }
 
-    body {
-    
-    }
-
     header h1 {
       text-align: center;
       color: chartreuse;
@@ -40,10 +36,26 @@
       color: red;
     }
 
+    .blue{
+      color: steelblue;
+      font-weight: bold;
+    }
+
+    .red{
+      color: red;
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
       /* 안쪽여백 위아래 10px 양쪽 0 */
       padding: 10px 0;
+    }
+    /* 테이블 요소  */
+    #tbl{
+      width: 385px;
+      border: 1px solid #ccc; 
+      padding: 5px;
     }
   </style>
 </head>
@@ -73,16 +85,16 @@
     <hr>
 
     <!-- 2. 메인 컨텐츠 -->
-    <main>
+    
       <!-- 신문사 -->
       <div>
         <img src="./images/NEWS KOREA.png" alt="NEWS1 image">
       </div>
       <!-- 기사제목 -->
-      <h2>애플카 기대감?…LG전자 10%↑ 등 LG그룹주 동반 상승</h2>
+      <h2><span class="blue">애플</span>카 기대감?…<span class="red">LG</span>전자 10%↑ 등 <span class="red">LG</span>그룹주 동반 상승</h2>
 
       <!-- 요약본 -->
-      <h3>대만 매체 "애플, 한국 등 방문 애플카 생산 논의"</h3>
+      <h3>대만 매체 "<span class="blue">애플</span>, 한국 등 방문 <span class="blue">애플</span>카 생산 논의"</h3>
 
       <!-- 이미지 -->
       <figure>
@@ -90,15 +102,15 @@
         <figcaption style="font-size: 9px;">(디지타임스 갈무리) © 뉴스1</figcaption>
       </figure><br>
       <!-- 내용 -->
-      <p>(서울=뉴스1) 정은지 기자 = <span>LG</span>전자 <span>LG</span>이노텍 등이 애플과의 '애플카' 협력 기대감에 동반 급등했다. 앞서 대만 IT 전문매체인 디지타임스는 애플이 최근 한국과 일본을 방문해 애플카 생산에 대해 논의했다고 보도했다.</p>
+      <p>(서울=뉴스1) 정은지 기자 = <span class="red">LG</span>전자 <span class="red">LG</span>이노텍 등이 <span class="blue">애플</span>과의 '<span class="blue">애플</span>카' 협력 기대감에 동반 급등했다. 앞서 대만 IT 전문매체인 디지타임스는 <span class="blue">애플</span>이 최근 한국과 일본을 방문해 <span class="blue">애플</span>카 생산에 대해 논의했다고 보도했다.</p>
 
-      <p>3일 한국거래소<sup>①</sup>에 따르면 <span>LG</span>전자 주가는 전일 대비 1만4000원(10.04%) 오른 15만3500원으로 거래를 마쳤다. <span>LG</span>전자우도 4800원(6.97%) 상승한 7만3700원으로 마감했다.</p>
+      <p>3일 한국거래소<sup>①</sup>에 따르면 <span class="red">LG</span>전자 주가는 전일 대비 1만4000원(10.04%) 오른 15만3500원으로 거래를 마쳤다. <span class="red">LG</span>전자우도 4800원(6.97%) 상승한 7만3700원으로 마감했다.</p>
 
-      <p><span>LG</span>이노텍은 1만3500원(6.37%) 오른 22만5500원, <span>LG</span>디스플레이도 750원(3.71%) 상승한 2만950원을 기록했다.</p>
+      <p><span class="red">LG</span>이노텍은 1만3500원(6.37%) 오른 22만5500원, <span class="red">LG</span>디스플레이도 750원(3.71%) 상승한 2만950원을 기록했다.</p>
 
-      <p><span>LG</span>그룹은 <span>LG</span>에너지솔루션을 비롯해 <span>LG</span>마그나이파워트레인, <span>LG</span>전자, <span>LG</span>디스플레이, <span>LG</span>이노텍 등 주요 전기차 부품을 생산할 수 있는 계열사들을 두고 있어서 애플카의 유력한 부품 공급사가 될 수 있을 것으로 관련 업계는 전망한다.</p>
+      <p><span class="red">LG</span>그룹은 <span class="red">LG</span>에너지솔루션을 비롯해 <span class="red">LG</span>마그나이파워트레인, <span class="red">LG</span>전자, <span class="red">LG</span>디스플레이, <span class="red">LG</span>이노텍 등 주요 전기차 부품을 생산할 수 있는 계열사들을 두고 있어서 <span class="blue">애플</span>카의 유력한 부품 공급사가 될 수 있을 것으로 관련 업계는 전망한다.</p>
 
-      <p>이 외에 하이비젼시스템<sup>②</sup>은 950원(5.59%) 오른 1만7950원으로 마감했다. 자율주행 관련 자회사인 퓨런티어의 사업이 주목받은 영향으로 보인다. 이 외에 애플카 관련주로 분류되는 현우산업(26.15%), 신성델타테크(8.06%), 덕우전자(2.46%) 등도 올랐다.</p>
+      <p>이 외에 하이비젼시스템<sup>②</sup>은 950원(5.59%) 오른 1만7950원으로 마감했다. 자율주행 관련 자회사인 퓨런티어의 사업이 주목받은 영향으로 보인다. 이 외에 <span class="blue">애플</span>카 관련주로 분류되는 현우산업(26.15%), 신성델타테크(8.06%), 덕우전자(2.46%) 등도 올랐다.</p>
 
 
       <!-- 기자이름 -->
@@ -153,7 +165,7 @@
       <hr>
 
       <h3>언론사별 가장 많이 본 뉴스</h3>
-      <table>
+      <table id="tbl">
         <tr>
           <td>
           <a href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=001&aid=0012644987&rankingType=RANKING">김웅 "오래된 일 기억에 없다…검찰과 제보자가 밝힐 일"
@@ -183,7 +195,7 @@
         </tr>
       </table>
 
-    </main>
+    
     <hr>
 
     <!-- 3. 하단 정보 -->

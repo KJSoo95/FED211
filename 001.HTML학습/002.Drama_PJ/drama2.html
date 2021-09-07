@@ -4,55 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>최신드라마 - 수목 드라마</title>
-  <style>
-    /* 선택자{속성명 : 값;} */
-
-    /* 상단부분 */
-    #top {
-      text-align: center;
-    }
-
-    /* 메뉴 */
-    .menu a,
-    .menu {
-      color: hotpink;
-    }
-
-    /* 컨텐츠부분 - 테이블*/
-    .tbl {
-      /* 테두리 - border : 두께 종류 색상*/
-      border: 5px solid #ccc;
-      /* 가로크기 -width */
-      width: 800px;
-      /* 마진을 이용한 박스중앙정렬 - 상하30px 좌우 auto */
-      margin: 30px auto;
-    }
-
-    /* 테이블 데이터(td) */
-    .tbl td {
-      /* 글자크기 */
-      font-size: 18px;
-      /* 줄간격 : 숫자는 글자크기기준 배수 (px사용가능) */
-      line-height: 2;
-      /* 안쪽여백 */
-      padding: 5px;
-    }
-
-    /* 드라마 제목 */
-    .tbl a {
-      color: #000;
-      text-decoration: none;
-      ;
-      font-weight: bold;
-    }
-
-    /* 마우스 오버시 글자색, 밑줄 */
-    .tbl a:hover {
-      /* hover는 가상 클래스 */
-      color: red;
-      text-decoration: underline;
-    }
-  </style>
+  <!-- 외부 CSS -->
+  <link rel="stylesheet" href="./css/common.css">
 </head>
 
 <body>
@@ -63,7 +16,7 @@
     <!-- 1-2. 메뉴 -->
     <h2 class="menu">
       <a href="drama1.html">월화 드라마</a> |
-      <a href="drama2.html">수목 드라마</a>
+      <a href="drama2.html" class="on">수목 드라마</a>
       </h>
   </div>
 
@@ -73,22 +26,22 @@
     <table class="tbl">
       <tr>
         <!-- 첫번째 줄 -->
-        <td>
+        <td class="ic">
           <!-- 이미지 -->
           <a href="#"><img src="./images/d5.jpg" alt="슬생"></a>
         </td>
-        <td>
+        <td class="tc">
           <!-- 정보 -->
           <a href="#">슬기로운 의사생활 시즌2</a><br>
           tvN (목) 오후 09:00<br>
           12.7% 닐슨코리아 (08.26.)<br>
           <button>구독 10,224</button>
         </td>
-        <td>
+        <td class="ic">
           <!-- 이미지 -->
           <a href="#"><img src="./images/d6.jpg" alt="더로드"></a>
         </td>
-        <td>
+        <td class="tc">
           <!-- 정보 -->
           <a href="#">더 로드 : 1의 비극</a><br>
           tvN (수, 목) 오후 10:50<br>
@@ -96,18 +49,18 @@
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="ic">
           <a href="#"><img src="./images/d7.jpg" alt="빨강구두"></a>
         </td>
-        <td>
+        <td class="tc">
           <a href="#">빨강 구두</a><br>
           KBS2 (월~금) 오후 07:50<br>
           16.8% 닐슨코리아 (09.06.)<br>
         </td>
-        <td>
+        <td class="ic">
           <a href="#"><img src="./images/d8.jpg" alt="속아도 꿈결"></a>
         </td>
-        <td>
+        <td class="tc">
           <a href="#">속아도 꿈결</a><br>
           KBS1 (월~금) 오후 08:30<br>
           17.5% 닐슨코리아 (09.06.)<br>
@@ -117,5 +70,6 @@
     </table>
   </div>
 </body>
+
 
 </html>

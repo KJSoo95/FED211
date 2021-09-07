@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* CSS 코딩구역 */
+/* 이 방식은 페이지 내부에 구역을 잡고 쓰는 인터널 방식 */
+/* 문법 : 선택자{ 속성 : 값;} */
+.header {
+  width: 900px;
+  margin: 0 auto;
+}
+
+header h1 {
+  text-align: center;
+  color: chartreuse;
+}
+
+nav {
+  text-align: center;
+  color: white;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.tbl{
+  
+}
+
+.aside{
+  float: right;
+  
+}
+li{
+  float: left;
+  width: 50%;
+}
+
+footer {
+  text-align: center;
+
+  /* 안쪽여백 위아래 10px 양쪽 0 */
+  padding: 10px 0;
+}

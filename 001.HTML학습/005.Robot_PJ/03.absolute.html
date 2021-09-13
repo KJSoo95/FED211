@@ -49,9 +49,38 @@
                 -> 보이는 화면은 body를 말하는 것이 아니다!!!
                 보이는 브라우저화면 즉, window화면이다.
                 (스크롤이 생겨도 스크롤위쪽화면을 말함!!!!)
-            */
-        }
 
+                2. 앱솔루트에 가로, 세로 크기를 주지 않은 경우
+                일반적으로는 block요소이므로 auto로써 부모요소에 끝까지 차지하지만 앱솔루트는...
+                내용만큼만 그 크기를 자동으로 설정한다!!!
+                -> 판타롱스타킹!!!!
+
+                3. 인라인요소에 앱솔루트를 준 경우
+                자동으로  display가 block으로 설정됨!!!
+                -> 일반적으로 앱솔루트는 block이다!!!
+
+                4. 앱솔루트에 마진을 설정할 경우 설정이 반영되는 경우는 위치설정과 같은 방향의 마진이 적용된다!!!!
+                예)
+                top을 적용했으면 margin-top
+                left을 적용했으면 margin-left
+                right을 적용했으면 margin-right
+                bottom을 적용했으면 margin-bottom
+
+                -> 앱솔루트의 마진은 위치이동 후 미세조정을 개별요소가 필요로 할 때 사용할 수 있음
+
+                -> 위치이동값이 설정되지 않았을 경우
+                기본위치가 top, left이므로 margin-top, margin-left만 적용된다!
+
+                5. 위치이동값 초기화
+                - 값으로 auto를 쓰면 된다!
+                - top: auto, left: auto, right: auto, bottom: auto;
+                - 기존값을 해제할때도 auto를 쓴다!
+                예) 기존에 left: 50px로 잡았다가 right기준으로 값을 변경하려고 할 때
+                그대로 right값만 설정하면 적용이 안되므로 left:auto로 초기화하고 right:50px 로 변경
+
+                */
+            }
+            
         #r1{
             position: relative;
            
@@ -93,13 +122,12 @@
             /* position: relative; */
         }
         .s8{
-            position: relative;
+            /* position: relative; */
         }
 
         .a2{
             position: absolute;
-            top: 0;
-            left: 0;
+            
             /* 나의 부모는 누구인가? */
             width: auto;
             height: auto;
@@ -112,6 +140,14 @@
             bottom: 0;
             right: 0;
             background-color: blue;
+        }
+
+        /* span 앱솔루트 */
+        .sa{
+            position: absolute;
+            top: 0;
+            right: 0;
+            
         }
     </style>
 </head>
@@ -129,9 +165,12 @@
                 <div class="bx s8">s8
                     <div class="a2">a2</div>
                     <div class="a3">a3</div>
+                    <span class="sa">나는 span앱솔루트!!!</span>
                 </div>
             </div>
         </div>
     </div>
+
+
 </body>
 </html>

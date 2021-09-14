@@ -9,9 +9,116 @@
             /* 배경 : 색이반고윙/크 */
             background: url(./images/bg.jpg) no-repeat fixed top/cover;
         }
+        body>*{
+            outline: 2px dashed lime;
+        }
+        /* 로봇 머리 */
+        #head{
+            position: relative;
+            /* 부모 자격 */
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background: url(./images/metal01.jpg)no-repeat center/cover;
+        }
+        /* 눈1 */
+        #eye1{
+            top: 50px;
+            left: 50px;;
+            position: absolute;
+            /* 나의 부모는? */
+            width: 50px;
+            height: 50px;
+            background: url(./images/e1.jpg)no-repeat 0/100% 100%;
+        }
+        #eye2{
+            position: absolute;
+            top: 50px;
+            right: 50px;;
+            /* 나의 부모는? */
+            width: 50px;
+            height: 50px;
+            background: url(./images/e2.jpg)no-repeat 0/100% 100%;
+        }
+        #nose{
+            position: absolute;
+            top: 115px;
+            right: 100px;;
+            /* 나의 부모는? */
+            width: 50px;
+            height: 60px;
+            background: url(./images/nose.jpg)no-repeat 0/100% 100%;
+        }
+        #mouse{
+            position: absolute;
+            right: 75px;;
+            bottom: 0px;
+            /* 나의 부모는? */
+            width: 100px;
+            height: 50px;
+            background: url(./images/mouth.png)no-repeat 0/100% 100%;
+        }
+        .ear{
+            position: absolute;
+            top: 75px;
+            right: -50px;
+            /* 나의 부모는? */
+            width: 50px;
+            height: 75px;
+            background: url(./images/metal02.jpg)no-repeat 0/100% 100%;
+        }
+        #ear1{
+            left: -50px;
+        }
+        #ear2{
+            right: -50px;
+        }
+        /* 몸 */
+        #body{
+            position: relative;
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            margin-top: 50px;
+            background: url(./images/metal01.jpg) no-repeat 0/100% 100%;
+        }
+        /* 목 */
+        #neck{
+            position: relative;
+            top: -50px;
+            left: 100px;
+            width: 50px;
+            height: 50px;
+            background: url(./images/metal02.jpg) no-repeat 0/100% 100%;
+        }
+       
+        
     </style>
 </head>
 <body>
-    
+    <!-- 로봇 머리 -->
+    <div id="head">
+        <!-- 눈1 -->
+        <div id="eye1"></div>
+        <!-- 눈2 -->
+        <div id="eye2"></div>
+        <!-- 코 -->
+        <div id="nose"></div>
+        <!-- 귀1 -->
+        <div id="ear1" class="ear"></div>
+        <!-- 귀2-->
+        <div id="ear2" class="ear"></div>
+        <!-- 입-->
+        <div id="mouse"></div>
+    </div>
+    <!-- 로봇 몸통 -->
+    <div id="body">
+        <div id="neck"></div>
+        <div id="arm1" class="part"></div>
+        <div id="arm2" class="part"></div>
+        <div id="leg1" class="part"></div>
+        <div id="leg2" class="part"></div>
+    </div>
 </body>
 </html>

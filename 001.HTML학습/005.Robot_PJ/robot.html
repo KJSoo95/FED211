@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=800px, initial-scale=1.0">
     <title>Robot PJ</title>
     <style>
+        html{
+            scroll-behavior: smooth;
+            /* adyth #위치 이동시 스크롤 애니메이션 설정 */
+        }
+
         html,
         body {
             margin: 0;
@@ -67,11 +72,13 @@
             padding: 0;
 
             /* 애니메이션 : 이시이지반방마 */
-            animation: logoAni 2s ease-in-out 1s forwards alternate;
+            animation: logoAni 2s ease-in-out 1s forwards alternate, 
+                            logoAni2 1s ease-in-out 3s infinite alternate;
             /* 1초후에 2초간 처음과 마지막에 천천히 애니후 끝상태유지(기본값은 한번만 실행!) */
-
+            
 
         }
+
 
         /* 애니메이션 키프레임 */
         @keyframes logoAni {
@@ -84,6 +91,16 @@
             to {
                 top: 50px;
                 left: 50px;
+            }
+        }
+
+        /* 추가 키프레임 */
+        @keyframes logoAni2 {
+            from{
+                transform: rotate(30deg);
+            }
+            to{
+                transform: rotate(-30deg);
             }
         }
 
@@ -133,6 +150,7 @@
             width: 50px;
             height: 50px;
             background: url(./images/e2.jpg)no-repeat 0/100% 100%;
+            
         }
 
         #nose {
@@ -215,7 +233,28 @@
         #arm2 {
             top: 0px;
             right: -50px;
+            transform-origin: top;/* 팔 상단으로 기준점 변경 */
+            /* 애니메이션: 이시이지반방마*/
+            animation: armAni1 .8s ease-in-out 4s forwards, armAni2 .3s ease-in-out 4.8s infinite alternate;
+
         }
+
+        /* 처음에 팔 올리기 키프레임 */
+        @keyframes armAni1 {
+            to{
+                transform: rotate(-140deg);
+            }
+        }/* 키프레임 */
+
+        /* 빠이빠이 키프레임 */
+        @keyframes armAni2 {
+            from{/* 값이 중간에 변경되어서 from 필요함 */
+                transform: rotate(-140deg);
+            }
+            to{
+                transform: rotate(-170deg);
+            }
+        }/* 키프레임 */
 
         #leg1 {
             top: 300px;
@@ -380,12 +419,56 @@
                 forwards(앞쪽에... 즉, 애니 끝장면)
 
             */
+            .link{
+                position: absolute;
+                top: 100px;
+                right: 50px;
+                font-size: 40px;
+                text-shadow: 2px 2px 2px #000;
+            }
+
+            .link a{
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .link a:hover{
+                color: #f00;
+                text-decoration: underline;
+            }
+
+            .btnTop{
+                position: fixed;
+                bottom: 50px;
+                right: 50px;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+                background-color: #ccc;
+                color: blue;
+                border-radius: 50%;
+                font-size: 24px;
+                font-weight: bold;
+                text-decoration: none;
+            }
     </style>
 </head>
 
 <body>
     <!-- f로봇 페이지 로고 -->
     <h1 id="logo">R2D2</h1>
+
+    <!-- 내용보기 링크 타이틀 -->
+    <h2 class="link">
+        <a href="#rdesc">What is Robot?</a>
+        
+        <!-- 
+            a요소에 href속성값으로 #아이디명을 사용하면
+            같은 페이지 안에 있는 아이디 요소 박스의 상단 라인으로 스크롤이 이동된다.
+
+         -->
+    </h2>
 
 
     <!-- 로봇 머리 -->
@@ -476,6 +559,9 @@
             the future.
         </p>
     </div>
+
+    <!-- 위로이동버튼 -->
+    <a href="#" class="btnTop">Top</a>
 </body>
 
 </html>

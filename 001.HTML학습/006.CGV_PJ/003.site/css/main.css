@@ -17,13 +17,22 @@ body {
     width: 1200px;
     margin: 0 auto;
     /* 가로 중앙 */
-    outline: 3px dotted yellow;
+    /* outline: 3px dotted yellow; */
 }
-
+/* ------------------------------------------------------------------------------------------- */
 /* 1. 상단영역 */
 #top {
+    position: relative;
+    /* 부모자격 부여 - gnb */
     height: 80px;
     background: url(../images/curtain.jpg) repeat-x;
+    z-index: 999;
+}
+
+@keyframes titAni {
+    to{
+        text-shadow: 0 0 5px aquamarine;
+    }
 }
 
 /* 1-1 페이지 타이틀 */
@@ -36,8 +45,183 @@ body {
 
     /* 그림자를 이용한 Glow효과 */
     text-shadow: 0 0 10px aquamarine;
+    
+    animation: titAni 1s ease-in-out infinite alternate;
 }
 
+/* 1-2 전체 메뉴GNB */
+.gnb{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    /* 나의 부모는 #top */
+}
+
+/* GNB ul 리스트 박스 */
+.glist{
+    position: relative;
+    z-index: 1;
+    /* 다음형제 요소인 #cam 앱솔박스보다 위!
+        -> 마우스 오바가 안되니까~
+    */
+    
+}
+
+/* GNB li 리스트 */
+.gnb li{
+    position: relative;
+    /* 부모자격 - .smenu */
+    padding: 0 10px;
+    padding-bottom: 5px;
+    font-family: 'Jua', sans-serif;
+    /* 글자크기 미지정시 16px */
+    font-size: 20px;
+}
+
+/* GNB 서브메뉴 */
+.smenu{
+    position: absolute;
+    left: 50%; /* 부모가로크기의 절반만큼 밀어준다! */
+    transform: translateX(-50%);/* 자기 자신크기의 절반을 왼쪽으로 이동 */
+    /* 자기자신크기의절반을 왼쪽으로 이동! */
+    margin-top: 5px;
+    /* 상단밀기 위치조정 */
+    width: 130px;
+    /* 
+        특정크기를 주지 않고 auto일 결루 부모키기로 한정됨!
+        따라서 특정크기를 줘야하는 케이스임! 
+    */
+    background: url(../images/bg_smenu.png) no-repeat center/cover;
+
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff;
+    /* 박스글로우 : x y blur (spread) 색 */
+    display: none;/* 처음에 안보임! */
+}
+
+/* 상위메뉴 오버시 서브메뉴 보이기 */
+.gnb>ul>li:hover .smenu{
+    display: block;
+}
+
+/* 서브메뉴 a요소 오버시 */
+.smenu a:hover{
+    color: red;
+}
+
+/* 서브메뉴 a요소 오버시 가상요소로 손가락모양 */
+.smenu a:hover::after{
+    content: '☞';/* 손가락모양 */
+    float: right;/* 인라인 요소 오른쪽 끝! */
+    font-weight: bold;
+}
+
+/* 탑 보더 클래스 */
+.tbar{
+    border-top: 1px solid #ccc;
+}
+
+/* 가상요소로 삼각형모양 만들기 */
+.smenu::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 삼각형 만들기 */
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid rgb(56, 56, 56);
+    /* border-bottom: 10px solid red; */
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* 역삼각형은 border-bottom 대신 border-top을 사용! */
+    /* transparent는 투명색 - 다른표현은 rgba( */
+}
+
+.smenu ol{
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.smenu li{
+    float: none; /* float 해제 */
+    font-size: 16px;
+    line-height: 2;
+}
+
+/* 영사기 박스 */
+#cam{
+    position: absolute;
+    bottom: -19px;
+    right: -50px;
+    /* 부모는 GNB */
+}
+/* 영가시 이미지 */
+#cam img{
+    position: relative;
+    /* z-index 적용위해 포지션 부여 */
+    z-index: 1;
+    width: 50px;    
+    transform: rotate(30deg);
+    /* 트랜지션:속시이지 */
+    transition: transform .5s .3s;
+}
+/* .gnb에 마우스 오버시 회전원상복귀 */
+.gnb:hover #cam img{
+    transform: rotate(0deg);
+    transition-delay: 0;
+    transition:  .5s;
+    /* 오버시엔 지연없이 바로실행! */
+}
+
+/* 빔박스 */
+.bim{
+    position: absolute;
+    top: -17px;
+    right: 9px;
+    width: 0px;
+    /* width: 200px;로 트랜지션 변경할 것! */
+    height: 71px;
+    background: url(../images/bim.png)no-repeat;
+    background-position: right center;
+    background-size: 100% 100%;/* 가로 세로 */
+    /* z-index: 0; */
+    
+    transition: width .3s linear;
+    /* linear 등속도 */
+
+    /* 애니메이션 */
+    animation: bimAni .04s infinite alternate;
+}
+
+/* .gnb에 아무스 오버시 빔 등장*/
+.gnb:hover .bim{
+    width: 400px;
+    transition-delay: .3s;
+}
+
+/* 빔이 너울너울 ㅓㄱ리도록 애니메이션 키프레임 */
+@keyframes bimAni {
+    from{
+        opacity: .7;
+    }
+    to{
+        opacity: 0.5;
+    }
+    
+}/* 키프레임 */
+/* 
+    opacity 속성
+    - 투명도를 주는 속성
+    - 0 완전투명, 1은 보임, 0.1~0.9 중간투명도
+*/
+
+
+/* ------------------------------------------------------------------------------------------- */
 /* 2. 메인영역 */
 #cont {
     position: relative;
@@ -63,6 +247,10 @@ body {
     position: absolute;
     bottom: 56px;
     left: 252px;
+
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기
+        -> .movtxt 요소의 부모에 줘야 적용된다! */
 }
 /* li디자인 */
 .mlist ul>li{
@@ -82,7 +270,66 @@ body {
     border: none;
 }
 
+/* 영화정보박스 */
+.movtxt{
+    position: absolute;
+    top: 100%;/* 아래쪽에 나가있음! */
+    /* 나의 부모는? .mist */
+    /* ledt값은 셋팅하지 않으므로 젠틀하다! 그래서 모두 li안에 그대로 있음! */
+
+    width: 99px;
+    height: 140px;
+    background-color: rgb(0, 0, 0, 0.7);
+
+    /* 글자세팅 */
+    font-family: 'Cute Font', cursive;
+    font-size: 14px;
+    line-height: 25px;
+    color: #fff;
+    text-align: center;
+
+    /* 트랜지션 속시이지 */
+    transition: top .4s ease-out;
+}
+
+/* 영화정보 li */
+.movtxt li{
+    float: none;/* float 해제 */
+}
+
+/* 첫번째 li는 영화제목임 */
+.movtxt li:first-child{
+    color: aqua;
+    font-size: 17px;
+    letter-spacing: -1px;/* 자간 */
+    margin-top: 30px;
+}
+
+/* 포스터 리스트에 마우스 오버시 영화정보 올라오기 */
+.mlist>ul>li:hover .movtxt{
+    top: 0;
+}
+/* ------------------------------------------------------------------------------------------- */
 /* 3. 하단영역 */
 #info {
     height: 100px;
+}
+
+/* 3-1. 회사정보박스 */
+#info address{
+    color: #fff;
+    font-style: normal;
+    font-family: 'Cute Font', cursive;
+    font-size: 18px;
+    line-height: 20px;
+
+    /* 안쪽 여백 */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+/* 하단로고 이미지 */
+#info img{
+    float: left;
+    /* 이미지는 왼쪽에 글자는 오른쪽으로 흐르게 */
+    margin-right: 20px;/* 글자 오른쪽 여백 */
 }

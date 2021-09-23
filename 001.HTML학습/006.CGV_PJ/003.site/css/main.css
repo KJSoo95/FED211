@@ -312,6 +312,7 @@ body {
 /* ------------------------------------------------------------------------------------------- */
 /* 3. 하단영역 */
 #info {
+    position: relative;
     height: 100px;
 }
 
@@ -332,4 +333,44 @@ body {
     float: left;
     /* 이미지는 왼쪽에 글자는 오른쪽으로 흐르게 */
     margin-right: 20px;/* 글자 오른쪽 여백 */
+}
+
+/* 3-2. sns 버튼 */
+.sns{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+/* sns li박스 */
+.sns li{
+    width: 34px;
+    height: 34px;
+    margin: 2px;
+    
+    /* 배경이미지 넣기-sprites */
+    background: url(../images/sprites_logo.png) no-repeat;
+    /* 흑백처리 */
+    filter: grayscale(100%);
+}
+.sns li:hover{
+    filter: grayscale(0);
+}
+/* 페이스북 */
+.sns li:first-child{
+    background-position: -509px -429px;
+}
+/* 트위터 */
+.sns li:nth-child(2){
+    background-position:-551px -429px;
+}
+/* 인스타그램 */
+.sns li:nth-child(3){
+    background-position: -593px -429px;
+}
+
+/* sns a요소 확장 */
+.sns a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }

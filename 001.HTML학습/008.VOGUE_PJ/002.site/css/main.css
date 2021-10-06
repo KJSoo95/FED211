@@ -3,13 +3,11 @@
 /* 외부 CSS합치기 */
 @import url(./reset.css);
 @import url(./core.css);
+@import url(./common.css);
 
 /* 속박스 */
 
-/* 1. 상단영역 */
-.top{
-    height: 206px;
-}
+
 /* 2. 메인영역 */
 .cont>div{
     outline: 2px dashed red;

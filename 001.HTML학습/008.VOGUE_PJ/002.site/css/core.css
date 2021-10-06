@@ -1,7 +1,29 @@
 @charset "UTF-8";
 /* VOGUE PJ 공통 클래스, 웹폰트 - core.css */
 
+/* 웹폰트 */
+/* pistilli체 */
+@import url('http://fonts.cdnfonts.com/css/pistilli');
+/* font-family: 'Roboto Condensed', sans-serif; */
+
+/* Roboto체 + Roboto Condensed체 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@300&display=swap');
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif; */
+
+/* 나눔바른고딕체 */
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
+/* font-family: 'NanumBarunGothic', sans-serif; */
+
 /* 공통 class */
+
+/* 배경이미지 설명(또는 숨길글자) 클래스 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 
 /* 속박스 */
 .ibx{
@@ -62,10 +84,22 @@
     /* 부모박스를 채움 */
 }
 
+/* .pt2아래 .cbx만 플로팅과 3등분 적용! */
+.pt2 .rbxIn{/* 3등분박스의 직꼐부모 */
+    display: flex;/* flex는 직계부모에게 준다! */
+}
+
 /* .pt2아래.cbx.만 3등분적용! */
 .pt2 .cbx{
-    float: left;
-    width: 33.33%;
+    /* flex 자식요소로 등분할 경우 flex1만 설정! */
+    flex: 1;
+
+
+
+
+    /* float으로 설정할 경우  가로크기를 %로 계산하여 등분해야함 */
+    /* float: left;
+    width: 33.33%; */
 }
 
 /* 배경이미지 공통 */

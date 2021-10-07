@@ -5,7 +5,10 @@
 @import url(./core.css);
 @import url(./common.css);
 
-/* 속박스 */
+/* 메인 페이지 공통 디자인 */
+.bgc{
+    background-color: #f9f9f9;
+}
 
 
 /* 2. 메인영역 */
@@ -79,8 +82,4 @@
 /* 파트타입2 - 이미지3개 */
 .pt2{
     height: 650px;
-}
-/* 3. 하단영역 */
-.info{
-    /* height: 285px; */
 }

@@ -30,14 +30,14 @@ font-family: 'Roboto Condensed', sans-serif; */
     max-width: 1300px;
     margin: 0 auto;
     /* 1300px보다 크면 중앙정렬 작으면 auto로 width를 유지함 */
-    outline: 3px dotted blue;
+    /* outline: 3px dotted blue; */
 }
 
 /* 비율유지박스 */
 .rbx{
     position: relative;
     /* 부모자격 - .rbxIn */
-    outline: 2px dotted orange;
+    /* outline: 2px dotted orange; */
 }
 
 /* 비율밀기 가상요소 */

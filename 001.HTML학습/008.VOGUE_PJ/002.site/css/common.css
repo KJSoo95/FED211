@@ -7,10 +7,16 @@
 
 /* 공사중 외곽선 */
 body *{
-    outline: 3px dotted rgb(177, 177, 177);
+    /* outline: 3px dotted rgb(177, 177, 177); */
 }
 
 /* 1. 상단영역 */
+#top{/* 상단 최상위 부모박스 */
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0 0 3px #747474;
+}
+
 .top{
     min-height: 206px;
 }
@@ -199,4 +205,45 @@ body *{
 /* 마우스 오버시 글자색 */
 .gnb a:hover{
     color: #f00;
+}
+
+/* 3. 하단영역 */
+.info{
+    min-height: 285px;
+    /* 최소 285px높이를 유지하다가 내용이 많아지면 늘어남 */
+    background-color: #000;
+    box-sizing: border-box;
+    padding: 70px;
+    font-family: 'Roboto', 'NanumBarunGothic', sans-serif;
+    /* color: #747474; */
+}
+/* 3-1. 하단로고 */
+.blogo{
+    text-align: center;
+}
+/* 3-2. 회사주소 */
+.addr{
+    font-style: normal;
+    text-align: center;
+    color: #747474;
+    font-size: 11px;
+    margin: 20px 0 10px;
+}
+
+/* 3-3. 하단링크 */
+.blink{
+    display: flex;
+    flex-wrap: wrap; 
+    /* 컨텐츠 크기보다 작아지면 줄바꿈 */
+    justify-content: center;
+}
+/* 3-3. 하단링크 a료소 */
+.blink a{
+    color: #747474;
+    font-size: 13px;
+    margin: 0 5px;
+}
+/* 마지막 li만 두껍게 */
+.blink li:last-child{
+    font-weight: bold;
 }

@@ -14,11 +14,11 @@
         console.log(rep1);
 
         // "태국"->"한국"으로 변경
-        // 여기에 코딩!
+        rep1 = rep1.replace("태국", "한국");
         console.log(rep1);
 
         // 콤마(,)를 별(☆)로 변경
-        // 여기에 코딩!
+        rep1 = rep1.replace(",", "☆");
         console.log(rep1);
         // 일반적으로 replace는 한개의 값을 다른값으로 변경함!
         // 여러개를 찾아서 바꾸고자 한다면... 정규표현식!
@@ -43,7 +43,7 @@
         */
 
         // 콤마(,)를 별(☆)로 모두!!! 변경-> 정규식사용!!!
-        // 여기에 코딩!
+        rep1 = rep1.replace(/,/g,"☆");
         console.log(rep1);
 
         /* 
@@ -65,15 +65,19 @@
         console.log(sub1);
 
         // "도깨비"만 추출
-        // 여기에 코딩!
+        console.log(sub1.substr(10,3));
+        console.log(sub1.substring(10,13));
         // 주의사항: substring의 끝번호는 잘라올 
         //          마지막문자 번호 다음순번을 써야함!
 
         // "공유"만 추출
-        // 여기에 코딩!
+        console.log(sub1.substr(15, 2));
+        console.log(sub1.substring(15, 17));
 
         // "도깨비, 공유씨!" 도깨비부터 마지막까지 잘라오기!
         // 여기에 코딩!
+        console.log(sub1.substr(10));
+        console.log(sub1.substring(10));
 
         /* 
             3. 문자 자르기 함수 : split(자를기준문자열)
@@ -83,15 +87,15 @@
         console.log(sp1);
 
         // 특수문자(^)로 잘라서 변수에 할당
-        // 여기에 코딩!
-        // console.log(arr);
+        var arr = sp1.split("^");
+        console.log(arr);
 
         // "목요일"을 선택하여 출력
-        // 여기에 코딩!
+        console.log(arr[4]);
 
         // 배열에서 데이터를 선택하여 다른말로 변경하시오.
         // "나는 학원에서까지 공부한다"
-        // 여기에 코딩!
+        console.log(arr[0]+" "+arr[7]+arr[8]+arr[6]+" "+arr[9]+arr[10]);
         
         /* 
             4. String(숫자데이터)
@@ -101,9 +105,9 @@
        var str2 = 11;
        // 결과
        var res1 = str1 + str2;
-       console.log("이번주 복권당첨번호는? ");
-       // 여기에 코딩!
-       console.log("이번주 복권당첨번호는? ");
+       console.log("이번주 복권당첨번호는? "+res1);
+       var res2 = String(str1) + String(str2);
+       console.log("이번주 복권당첨번호는? " + res2);
 
     </script>
 </head>

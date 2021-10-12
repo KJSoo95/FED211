@@ -100,8 +100,12 @@ $(function(){
 
         // console.log("들어가기 버튼;")
 
+        // 자기자신 버튼 없애기
+        $(this).hide();
+
         // 메시지 지우기
         msg.fadeOut(200);
+        // fadeOut(시간) - opacity로 서서히 사라짐
 
         // 이동할 빌딩 li의 위치정보 알아내기!
         // offset() 메서드 위치나 크기정보를 알려줌
@@ -119,7 +123,13 @@ $(function(){
         mi.animate({
             top : tval +"px",
             left : lval + win5 + "px"
-        }, 1000);
+        }, 1000, function(){// 콜백함수(애니후 실행!)
+            //메시지 변경하기
+            msg.text("와~! 아늑하다! 옆방으로 가보자!")
+            // 나타나기
+            .fadeIn(200);
+            // 한번 선택하고 이어서 베서드를 계속 쓰는 방법을 메서드 체인이라고 함!
+        });
         
         // [ animate 매서드 ]
         // animate({CSS설정}, 시간, 이징, 함수)

@@ -101,7 +101,7 @@ $(function(){
         // console.log("들어가기 버튼;")
 
         // 자기자신 버튼 없애기
-        $(this).hide();
+        $(this).slideUp(300);
 
         // 메시지 지우기
         msg.fadeOut(200);
@@ -120,6 +120,7 @@ $(function(){
 
         // 미니언즈 이동하기
         // 대상 .mi -> mi변수에 할당
+        // animate({CSS설정}, 시간, 이징, 함수)
         mi.animate({
             top : tval +"px",
             left : lval + win5 + "px"
@@ -129,17 +130,113 @@ $(function(){
             // 나타나기
             .fadeIn(200);
             // 한번 선택하고 이어서 베서드를 계속 쓰는 방법을 메서드 체인이라고 함!
-        });
-        
-        // [ animate 매서드 ]
+
+            // 다음변경버튼 보이기
+            btns.eq(1).slideDown(400);
+        });/// animate ///
+
+    });///3-1 들어가기 버튼
+
+    // 3-2. 옆방으로! 버튼
+    btns.eq(1).click(function(){
+
+        // 자기자신 버튼 없애기
+        $(this).slideUp(300);
+
+        // 메시지 지우기
+        msg.fadeOut(200);
+
+        // 이동할 li타겟 -> bd변수에 할당(.building li)
+        let tg = bd.eq(9);
+        let tval = tg.offset().top; // 화면에서의 top값
+        let lval = tg.offset().left; // 화면에서의 left값
+        console.log(tval + "/" + lval);
+
+        // 미니언즈 이동하기
+        // 대상 .mi -> mi변수에 할당
         // animate({CSS설정}, 시간, 이징, 함수)
-        // - CSS설정에 따라 애니메이션 연출 메서드
-        // - 시간 1/1000초(단위없음)
-        // - 이징 - 가속도
-        // - 함수 - 애니 후 실행코드 함수(콜백함수)
+        mi.animate({
+            top : tval +"px",
+            left : lval + win5 + "px"
+        }, 1000, function(){// 콜백함수(애니후 실행!)
+
+            // 좀비 나타나기 (콜백에서 2초 후)
+            setTimeout(() => {
+                // 현재 li에 있는 좀비만 보여라!
+                tg.find(".mz").fadeIn(300);
+                // find(요소) 하위 중 자손요소 찾기!
+
+                //메시지 변경하기
+                msg.html("악! 좀비 <br> 어서 피하자~!")
+                // .css({left : "-120%"})
+                .attr("style", "left : -120%")
+                .delay(400)//0.4초 후
+                // 나타나기
+                .fadeIn(200)
+                // 한번 선택하고 이어서 베서드를 계속 쓰는 방법을 메서드 체인이라고 함!
+    
+                // 다음변경버튼 보이기
+                btns.eq(2).delay(700).slideDown(400);
+
+            }, 1000);
 
 
-    });
+        });/// animate ///
+        
+
+
+    });// 3-2. 옆방으로! 버튼
+
+    // 3-2. 윗층으로 도망가! 버튼
+    btns.eq(2).click(function(){
+
+        // 자기자신 버튼 없애기
+        $(this).slideUp(300);
+
+        // 메시지 지우기
+        msg.fadeOut(200);
+
+        // 이동할 li타겟 -> bd변수에 할당(.building li)
+        let tg = bd.eq(7);
+        let tval = tg.offset().top; // 화면에서의 top값
+        let lval = tg.offset().left; // 화면에서의 left값
+        console.log(tval + "/" + lval);
+
+        // 미니언즈 이동하기
+        // 대상 .mi -> mi변수에 할당
+        // animate({CSS설정}, 시간, 이징, 함수)
+        mi.animate({
+            top : tval +"px",
+            left : lval + win5 + "px"
+        }, 1000, function(){// 콜백함수(애니후 실행!)
+
+            msg.text("여긴없겠지?")
+            .delay(500).fadeIn(200);
+
+            // 좀비 나타나기 (콜백에서 2초 후)
+            setTimeout(() => {
+                // 현재 li에 있는 좀비만 보여라!
+                tg.find(".mz").fadeIn(300);
+                // find(요소) 하위 중 자손요소 찾기!
+
+                //메시지 변경하기
+                msg.text("헉! 여기도!")
+                .delay(400)//0.4초 후
+                // 나타나기
+                .fadeIn(200)
+                // 한번 선택하고 이어서 베서드를 계속 쓰는 방법을 메서드 체인이라고 함!
+    
+                // 다음변경버튼 보이기
+                btns.eq(3).delay(700).slideDown(400);
+
+            }, 1000);
+
+
+        });/// animate ///
+        
+
+
+    });// 3-3. 윗층으로 도망가 버튼
 
 
 });////////////////////jQB////////////////

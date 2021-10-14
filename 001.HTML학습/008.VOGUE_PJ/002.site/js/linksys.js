@@ -40,5 +40,17 @@ $(function(){
         // cat 이라는 키이름은 사용자가 지은것이다.
         // 키 = 값 을 맞추기 위함!
 
-    })
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop() > 30)
+            $("#top").addClass("on");
+        else   
+            $("#top").removeClass("on");
+        
+    });
+
+
+
+
 });///////////jqb////////////

@@ -297,6 +297,7 @@ body *{
 
 /* 위로가기 버튼 */
 .tbtn{
+    display: none;
     position: fixed;
     bottom: 0;
     right: 75px;
@@ -310,7 +311,7 @@ body *{
     z-index: 999;
 
     /* 트랜지션 : 속시이지 */
-    transition: 0.3s;
+    transition: background-color .3s;
 }
 .tbtn:hover{
     background-color: #f00;

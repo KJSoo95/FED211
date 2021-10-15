@@ -42,13 +42,7 @@ $(function(){
 
     });
 
-    $(window).scroll(function(){
-        if($(document).scrollTop() > 30)
-            $("#top").addClass("on");
-        else   
-            $("#top").removeClass("on");
-        
-    });
+    
 
 
 

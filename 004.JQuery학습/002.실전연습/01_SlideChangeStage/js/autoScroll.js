@@ -161,6 +161,12 @@ $(function(){///// jqb /////
             $("html, body").animate({
                 scrollTop : pos + "px"
             },800, "easeOutCubic");
+
+            ///// 5. 현재 GNB메뉴의 li에 class넣기
+            // 대상 : .gnb li
+            $(".gnb li").eq(pno).addClass("on")
+            .siblings().removeClass("on");
+
         }); ///// mousewheel 이벤트 함수 /////  
 
 

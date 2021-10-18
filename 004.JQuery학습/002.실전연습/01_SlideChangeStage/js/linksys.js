@@ -9,19 +9,23 @@
 
 $(function () {
 
+    $(".gnb a, .indic a").click(function (e) {
+        // 1. 기본이동 막기
+        e.preventDefault();
+    });
+
     // 대상 : .gnb a + .indic a
     // -> GNB와 인디케이터는 구조가 똑같음!
     // 따라서 이미 구현된 클릭이벤트 함수에 추가만 해도됨
-    $(".gnb a, .indic a").click(function (e) {
+    $(".gnb li, .indic li").click(function () {
 
-        // 1. 기본이동 막기
-        e.preventDefault();
+
 
         // 2. 클릭된 a의 부모 li의 순번 알아낵
         // index() 메서드 사용! -> 선택요소의 순번을 리턴
         // parent() 메서드는 a요소의 부모인 li로 올라간다!
         // li는 순번이 0부터 읽어옴!
-        let idx = $(this).parent().index();
+        let idx = $(this).index();
 
         console.log("메뉴클릭!" + idx);
 
@@ -49,9 +53,9 @@ $(function () {
         // 대상 : .gnb li + .indic li
         // 해당 li에 클래스를 넣으면 css에서 셋팅된 디자인적용!
         $(".gnb li").eq(pno).addClass("on")
-        .siblings().removeClass("on");
+            .siblings().removeClass("on");
         $(".indic li").eq(pno).addClass("on")
-        .siblings().removeClass("on");
+            .siblings().removeClass("on");
 
 
     });

@@ -14,7 +14,7 @@ $(function(){
     // 1. GNB 메뉴 링크 연결하기
     // 대상 : .gnb a
     // 이벤트 : click -> click() 메서드 사용
-    $(".gnb a").click(function(e){
+    $(".gnb a, .mognb a").click(function(e){
         // e- 이벰트 전달변수 : 여러가지 이벤트 관련 설정 가능!
         // 기본이동속성 막기
         e.preventDefault();

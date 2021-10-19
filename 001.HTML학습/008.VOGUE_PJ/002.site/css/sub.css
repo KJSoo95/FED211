@@ -1,49 +1,59 @@
-@charset "UTF-8";
+@charset "utf-8";
 /* VOGUE PJ 서브 CSS - sub.css */
 
-/* 외부 CSS합치기 */
-@import url(./reset.css);
-@import url(./core.css);
-@import url(./common.css);
-@import url(./main.css);
+/* 외부CSS 합치기 */
+@import url(reset.css);
+@import url(core.css);
+@import url(common.css);
 
 /* 1. 서브타이틀 */
 .stit{
     font-family: 'Pistilli', sans-serif;
     font-size: 50px;
     padding: 40px 0 20px;
+    /* 위40px 양쪽0 아래20px */
     text-align: center;
     font-weight: normal;
 }
 
-/* 2. 서브메뉴(LNB) */
+/* 2. 서브메뉴(LNB-Local Navigation Bar) */
 .lnb{
     padding: 5px 0 50px;
+    /* 위5px 양쪽0 아래50px */
 }
 .lnb ul{
     display: flex;
+    /* 플렉스박스 */
+    flex-wrap: wrap;
+    /* 자동 줄바꿈 */
     justify-content: center;
-    /* 가로컨텐츠 중암 */
+    /* 가로컨텐츠 중앙 */
 }
 .lnb li{
     margin: 0 10px;
+    /* 양쪽마진 10px */
 }
+
 .lnb a{
     font-family: 'NanumBarunGothic', sans-serif;
     font-size: 18px;
     color: #333;
-    /* 트랜지션 : 속시이지 */
-    transition: .3s;
+    font-weight: lighter;
+    /* 트랜지션: 속시이지 */
+    transition: color .5s;
 }
 
+/* 마우스오버시 */
 .lnb a:hover{
-    color: red;
+    color: #f00;
 }
 
 /* 첫번째 메뉴 */
-.lnb li:first-child a{
-    color: red;
+.lnb li:first-child a {
+    color: #f00;
 }
+
+
 
 /* 개별 배경이미지 셋업 */
 
@@ -57,7 +67,6 @@
 .fashion .bg1-3{
     background-image: url(../images/fashion/cont1-3a.jpg);
 }
-
 .fashion .bg2-1{
     background-image: url(../images/fashion/cont2-1a.jpg);
 }
@@ -78,7 +87,6 @@
 .beauty .bg1-3{
     background-image: url(../images/beauty/cont1-3a.jpg);
 }
-
 .beauty .bg2-1{
     background-image: url(../images/beauty/cont2-1a.jpg);
 }
@@ -99,7 +107,6 @@
 .living .bg1-3{
     background-image: url(../images/living/cont1-3a.jpg);
 }
-
 .living .bg2-1{
     background-image: url(../images/living/cont2-1a.jpg);
 }
@@ -120,7 +127,6 @@
 .people .bg1-3{
     background-image: url(../images/people/cont1-3a.jpg);
 }
-
 .people .bg2-1{
     background-image: url(../images/people/cont2-1a.jpg);
 }
@@ -141,7 +147,6 @@
 .video .bg1-3{
     background-image: url(../images/video/cont1-3a.jpg);
 }
-
 .video .bg2-1{
     background-image: url(../images/video/cont2-1a.jpg);
 }
@@ -162,7 +167,6 @@
 .runway .bg1-3{
     background-image: url(../images/runway/cont1-3a.jpg);
 }
-
 .runway .bg2-1{
     background-image: url(../images/runway/cont2-1a.jpg);
 }
@@ -183,7 +187,6 @@
 .shopping .bg1-3{
     background-image: url(../images/shopping/cont1-3a.jpg);
 }
-
 .shopping .bg2-1{
     background-image: url(../images/shopping/cont2-1a.jpg);
 }
@@ -192,4 +195,10 @@
 }
 .shopping .bg2-3{
     background-image: url(../images/shopping/cont2-3a.jpg);
+}
+
+
+/* runway 타이틀 작은글씨 */
+.cbx h2 small{
+    font-size: 14px;
 }

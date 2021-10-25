@@ -1,9 +1,9 @@
 <?php
 
 /// DB연결 문자열 ///
-$servername = "112.175.184.61";//DB서버명
+$servername = "localhost";//DB서버명
 $username = "wltn7star";//DB최고관리자권한
-$password = "leopard12!!";//root에는 비번이 없음
+$password = "leopard12!";//root에는 비번이 없음
 $dbname = "wltn7star";//사용DB명
 
 /// DB서버와 연결하기 ///

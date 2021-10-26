@@ -1,6 +1,6 @@
 // 파일럿 PJ 메인 JS - main.js
 
-$(function(){
+$(function () {
 
     ////// 배너 드래그 기능 구현하기 ///////////
 
@@ -9,8 +9,8 @@ $(function(){
 
     // 드래그 기능주기 -> jQuery UI 기능
     slide.draggable({
-        axis : "x" // x축 고정  
-    });//// draggable ////
+        axis: "x" // x축 고정  
+    }); //// draggable ////
 
     /* 
         배너 드래그 이동의 기준
@@ -26,8 +26,8 @@ $(function(){
             left : -90% -> left : -(1000*0.9) + "px"
     */
 
-   /// 윈도우 가로크기 구하는 함수
-   let awin = () => $(window).width();
+    /// 윈도우 가로크기 구하는 함수
+    let awin = () => $(window).width();
     //////////////////// awin 함수 ///////////////////
     /// 화살표함수 뒤에 중괄호 없이 명령문 하나만 있으면
     // 그게 바로 return 문이다! -> 함수호출한 곳으로 가져감!
@@ -36,10 +36,10 @@ $(function(){
     let win = awin();
 
     // 화면 크기변경(resize)시 윈도우 가로크기 업데이트
-    $(window).resize(()=>{
+    $(window).resize(() => {
         win = awin();
         console.log("윈도우 가로 : " + win);
-    });/////////////////////////// resize 함수 /////////////////////////////
+    }); /////////////////////////// resize 함수 /////////////////////////////
 
     // 현재 슬라이드 위치값 구하기
     // 슬라이드 위치값
@@ -54,10 +54,18 @@ $(function(){
     let indic = $(".bindic li");
     // 슬라이드 개스
     let scnt = slide.find("li").length;
-    console.log(scnt);  
+    console.log(scnt);
+
+    // 자동넘김지우기는 드래그 시작 이벤트(dragstart)에서
+    // 해줘야 미리 끊어줄 수 있다~!
+    slide.on("dragstart", () => {clearAuto();});
+
+
     // 대상 : .slide - > slide변수
     // 이벤트 : dragstop -> 드래그가 끝날때
-    slide.on("dragstop", function(){
+    slide.on("dragstop", function () {
+
+        clearAuto();
 
         // 광드래그 막기 커버보임
         cover.show();
@@ -70,89 +78,217 @@ $(function(){
         //////////////////////////// 이동구현하기 ///////////////////////////////////
         // 2. 오른쪽에서 들어오는 이동 -> left : -110% 보다 작을때
         // -110% 구하기 -> -win*1.1
-        if(spos < -win*1.1){
+        if (spos < -win * 1.1) {
 
             /// 슬라이드가  -200% 위치로 이동
             // stop() 메서드는 animate가 큐에 쌓이는 것을 막는다!
             slide.stop().animate({
-                left : -win*2 + "px"
-            }, 700, easing, function(){ // 콜백함수(이동 후)
+                left: -win * 2 + "px"
+            }, 700, easing, function () { // 콜백함수(이동 후)
                 // 첫번째 슬라이드 맨뒤로 보내기
                 slide.append(slide.find("li").first())
-                // 이때 left값을 -100%위치로 고정해야함!
-                .css({left : -win + "px"});
+                    // 이때 left값을 -100%위치로 고정해야함!
+                    .css({
+                        left: -win + "px"
+                    });
 
                 // 광드래그 커버 지우기
                 cover.hide();
+
+                // 배너글자 등장함수 호출!
+                showTxt();
+                // 아랫쪽의 sno변경이 먼저 이루어짐!
+
             }); ////////////// animate //////////////
 
             // 블릿순번변경하기 : 오른쪽이동은 증가!
             sno++;
             // 한계수 : 슬라이드 수와 같아지면 첫번호로!
-            if(sno === 6) sno =0;
+            if (sno === 6) sno = 0;
 
             chgIndic();
-            
+
         } ////////////////////////// if문 : -100%보다 작을때 ///////////////////////
-        
+
         // 2. 왼쪽에서 들어오는 이동 -> left : -90% 보다 클때
         // -90% 구하기 -> -win*0.9
-        else if(spos >  -win*0.9){
+        else if (spos > -win * 0.9) {
 
             /// 슬라이드가  0 위치로 이동
             slide.stop().animate({
-                left :  "0px"
-            }, 700, easing, function(){ // 콜백함수
+                left: "0px"
+            }, 700, easing, function () { // 콜백함수
                 slide.prepend(slide.find("li").last())
-                // left값을 원래 위치인 -100%값으로 바꿔준다
-                .css({left : -win + "px" });
+                    // left값을 원래 위치인 -100%값으로 바꿔준다
+                    .css({
+                        left: -win + "px"
+                    });
                 cover.hide();
+
+                // 배너글자 등장함수 호출!
+                showTxt();
+                // 아랫쪽의 sno변경이 먼저 이루어짐!
 
             }); ////////////// animate //////////////
 
             // 블릿순서변경하기 : 왼쪽이동
 
             sno--;
-            if(sno ===-1) sno=scnt-1;
-            
+            if (sno === -1) sno = scnt - 1;
+
             chgIndic();
 
         } ////////////////////////// if문 : -90%보다 클때 ///////////////////////
-        
+
         // 3. 사이범위 일때 제자리로 돌아오기
         // -110% < 범위 < -90%
-        else{
+        else {
             slide.stop().animate({
-                left : -win + "px"
-            }, 300, function(){
+                left: -win + "px"
+            }, 300, function () {
                 cover.hide();
 
             }); ////////////// animate //////////////
-            
+
         } /////////////////////////// else 문 : 사이범위
-        
-       
-       
 
 
-    });//////////////////////////// drag ///////////////////////////////////////////
+
+
+
+    }); //////////////////////////// drag ///////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////
 
-    
- // 블릿변경함수
-        let chgIndic = () => {
-            // 블릿변경하기 : .blindic li -> indic변수
-            indic.eq(sno).addClass("on").siblings().removeClass("on");
-        };
+
+    // 블릿변경함수
+    let chgIndic = () => {
+        // 블릿변경하기 : .blindic li -> indic변수
+        indic.eq(sno).addClass("on").siblings().removeClass("on");
+    };
+
+
+    ///// 배너등장 텍스트 /////
+    let banTxt = [
+        "Men's Season<br>Collection",
+        "2021 Special<br>Collection",
+        "GongYoo<br>Collection",
+        "T-shirt<br>Collection",
+        "Shoes<br>Collection",
+        "Wind Jacket<br>Collection",
+    ];
+    ///// 배너글자 등장 함수 ///////
+    let showTxt = () => {
+
+        // 0. 있을 수 있는 .btit 박스 지우기
+        $(".btit").remove();
+
+        // 1. 배너글자 박스 넣기
+        // 대상 : .slide li -> 항상 두번째 슬라이드임!
+        slide.find("li").eq(1).append('<h2 class ="btit"></h2>')
+
+        // 배너화면 구성상 왼쪽과 오른쪽으로 글자위치조정
+        // sno 순번 1, 2 만 오른쪽
+        // left value 즉, left값을 변수로 처리!
+        let lval = "30%"; // 왼쪽설정값
+        if (sno === 1 || sno === 2) lval = "70%"; // 오른쪽 설정값
+
+        // 2. 배너글자박스 CSS
+        $(".btit").css({
+                position: "absolute",
+                top: "55%", // 아래쪽으로 살짝 내려감 
+                left: lval,
+                transform: "translate(-50%, -50%)",
+                font: "bold 4.5vmax Verdana",
+                color: "#fff",
+                textShadow: "1px 1px 3px #777",
+                whiteSpace: "nowrap",
+                opacity: 0
+            }) /////////////////// css //////////////////
+
+            // 3. 글자넣기
+            .html(banTxt[sno])
+            // 4. 애니메이션 등장하기 - 주인공에서 이어짐!
+            .animate({
+                top: "50%",
+                opacity: 1
+            }, 1000, "easeInOutQuart");
+
+    }; ////////////// showTxt함수 //////////////////////
 
 
 
+    // 배너텍스트 등장함수 최초호출
+    showTxt();
+
+    //////////////////////////////////////////////////////////////////////////////////
+    /////// 배너자동 넘기기 함수 : 오른쪽에서 들어옴!/////
+    ///////////////////////////////////////////////////////////////////////////////////
+    let goSlide = () => {
+
+         // 광드래그 막기 커버보임
+         cover.show();
+
+        /// 슬라이드가  -200% 위치로 이동
+        // stop() 메서드는 animate가 큐에 쌓이는 것을 막는다!
+        slide.stop().animate({
+            left: -win * 2 + "px"
+        }, 700, easing, function () { // 콜백함수(이동 후)
+            // 첫번째 슬라이드 맨뒤로 보내기
+            slide.append(slide.find("li").first())
+                // 이때 left값을 -100%위치로 고정해야함!
+                .css({
+                    left: -win + "px"
+                });
+
+            // 광드래그 커버 지우기
+            cover.hide();
+
+            // 배너글자 등장함수 호출!
+            showTxt();
+            // 아랫쪽의 sno변경이 먼저 이루어짐!
+
+        }); ////////////// animate //////////////
+
+        // 블릿순번변경하기 : 오른쪽이동은 증가!
+        sno++;
+        // 한계수 : 슬라이드 수와 같아지면 첫번호로!
+        if (sno === 6) sno = 0;
+
+        chgIndic();
+
+    }; ////////////////////////  goSlide 함수 ////////////////////////////
 
 
+    // 인터발용 함수
+    let autoI; // 지우기용
+
+    ///////////////////////////////////////////////////////////////////////////
+    ////////// 자동인터벌 호출 함수 /////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    let autoSlide = () => {
+        autoI = setInterval(goSlide, 2500);
+        // 2.5초 간격으로 goSlide함수를 호출!
+    };
+
+    // 인터발 최초호출
+    autoSlide();
+
+    // 타임아웃용변수
+    let autoT; // 지우기용
+
+    /////////////////////////////////////////////////////////////////////////////////
+    ///////////// 인터발 지우기함수 + 안걸들면 재실행/////
+    /////////////////////////////////////////////////////////////////////////////////
+    let clearAuto = () => {
+        /// 1. 인터벌 지우기
+        clearInterval(autoI);
+        // 2. 타임아웃지우기(실행쓰나미 방지!)
+        clearTimeout(autoT);
+        // 3. 일정시간뒤 다시 호출
+        autoT = setTimeout(autoSlide, 3000);
+        // 3초동안 기다렸다가 다시 인터발 함수호출
+
+    }; ///////////////////////////// clearAuto 함수 ////////////////////////////
 
 
-
-
-
-
-});//////////////////jqb
+}); //////////////////jqb

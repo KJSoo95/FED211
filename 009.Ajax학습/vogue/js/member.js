@@ -1,5 +1,9 @@
 // 보그코리아 회원가입 페이지 JS - member.js //
 
+// const {
+//     ajax
+// } = require("jquery");
+
 $(function () {
 
     /* 
@@ -75,7 +79,60 @@ $(function () {
 
                 } // if문 : 결과가 false일때
                 else {
-                    $(this).siblings(".msg").text("훌륭한 아이디네요!").addClass("on")
+                    /* 
+                        [ AJAX로 중복아이디 검사하기! ]
+                        ajax 처리유형 2가지
+
+                        1) POST방식 처리 메서드
+                        - $.post(URL, DATA, CALLBACK)
+
+                        2) get방식 처리 메서드
+                        - $.get(URL, CALLBACK)
+
+                        3) 위의 2가지 유형 중 선택처리 메서드
+                        - $.ajax(URL, TYPE, DATA, DATA TYPE, 비동기옵션, 성공처리, 실패처리)
+                    */
+                    $.ajax({
+                        // 1. URL
+                        url: "process/chkID.php",
+                        // 2. TYPE(GET, POST)
+                        type: "post",
+                        // 3. DATA
+                        data: {
+                            "mid": $("#mid").val()
+                        },
+                        // 4. DATA TYPE
+                        dataType: "html",
+                        // 5. 비동기옵션(false로 해야 JS파일이 전역변수를 여기에서 사용가능함! ) -> 여기서는 pass를 쓰기위함!
+                        async: false,
+                        // 6. 성공처리
+                        success: function (res) {
+                            // alert(res);
+                            if (res === "ok") {
+                                $("#mid").siblings(".msg").text("훌륭한 아이디 입니다!").addClass("on");
+                            } /////////////////////// if문 ///////////////////
+                            else { //////////////
+
+                                $("#mid").siblings(".msg").text("이미 사용중인 아이디 입니다!!").removeClass("on");
+
+                                //// 통과여부 false
+                                pass = false;
+                            }
+                        }, //////////////////////////////// success 함수 ///////////////////////
+                        // 7. 실패처리
+                        // xhr - XMLHttpRequest
+                        // status - 실패상태코드번호
+                        // error   -    에러결과괎
+                        error: function (xhr, status, error) {
+                            // alert("실행실패 : " + error);
+                        } ///////////////////////////  error 함수 //////////////////////
+
+                    }); ////////////////////// ajax 메서드 //////////////////////
+
+
+
+
+
                 } /// else문 : 결과가 true일때
 
             } ///// else if문 : 아이디일때
@@ -352,7 +409,7 @@ $(function () {
                     } ///// if문 : 성공시
                     else {
 
-                        alert(res);
+                        // alert(res);
                     } ///// else문 : 실패시 //////
 
                 } ////////// 전송 후 실행함수 /////////////

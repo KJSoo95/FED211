@@ -13,8 +13,13 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/jquery-ui.min.js"></script>
     <script src="./js/linksys.js"></script>
-    <script src="./js/sub.js"></script>
     <script src="./js/common.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- 뷰JS 프레임워크 스탠드얼론 버전 가져오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+    <!-- 엑시오스 라이브러리 스탠드얼론 버전 가져오기(제이슨 불러오기) -->
+    <script src="./js/sub.js"></script>
 
 </head>
 <body>
@@ -218,27 +223,31 @@
         </header>
     </div>
     <!-- 2. 메인영역 -->
-    <div class="bgc">
-        <main class="cont ibx">
+    <div class="bgc" id="cont">
+        <main class="cont ibx" v-for="( v ,i  ) in items.data" v-if="v.경로 === catName" v-bind:class="catName">
+            <!-- 
+                v-bind:class="catName"
+                클래스명 만들어주기 -> 경로명과 같은 이름으로 설정
+             -->
+
+             <!-- 탭 타이틀 변경하기 함수 호출 -->
+             {{chgTit(v.제목)}}
+
+
             <!-- 1. 타이틀 -->
-            <h2 class="stit"></h2>
+            <h2 class="stit">{{v.제목}}</h2>
             <!-- 2. 서브메뉴(LNB-Local Navigation Bar) -->
             <nav class="lnb">
-                <ul>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
+                <ul v-if = "v.메뉴!=='없음'">
+                    <!-- 
+                        v-if = "v.메뉴!=''없음"
+                        만약에 v.메뉴의 값이  '없음'이 아니면 true
+                        이때 for문이 실행됨!
+                     -->    
+                    <li v-for = "(m,i) in v.메뉴" >
+                        <a href="#">
+                            {{m}}
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -246,26 +255,31 @@
             <section class="pt2 rbx">
                 <div class="rbxIn">
                     <div class="cbx bgi bg1-1">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[0]"></h2>
+                        <!-- 
+                            v-html = "값" 해당값을 요소의 데이터로 html 태그로 적용하기
+                            주의) {{}} 콧수염은 text만 넣어줌
+                            (html태그 처리 불가!)
+                         -->
                     </div>
                     <div class="cbx bgi bg1-2">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[1]"></h2>
                     </div>
                     <div class="cbx bgi bg1-3">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[2]"></h2>
                     </div>
                 </div>
             </section>
             <section class="pt2 rbx">
                 <div class="rbxIn">
                     <div class="cbx bgi bg2-1">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[3]"></h2>
                     </div>
                     <div class="cbx bgi bg2-2">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[4]"></h2>
                     </div>
                     <div class="cbx bgi bg2-3">
-                        <h2></h2>
+                        <h2 v-html="v.타이틀[5]"></h2>
                     </div>
                 </div>
             </section>
